@@ -1,4 +1,6 @@
+"use client";
 import React, { useState, useEffect, useRef, ReactNode } from 'react';
+import Image from 'next/image';
 import { Building2, GraduationCap, Landmark, Globe, Settings, ChevronDown, Gamepad } from 'lucide-react';
 
 // Image paths
@@ -12,25 +14,7 @@ const IMAGES = {
   expo: "/images/expo.jpg"
 };
 
-// Parallax hook
-const useParallax = (ref: React.RefObject<HTMLDivElement>, speed = 0.5) => {
-    
-    useEffect(() => {
-    const handleScroll = () => {
-      if (!ref.current) return;
-      const scrolled = window.scrollY;
-      const element = ref.current;
-      const offset = element.offsetTop;
-      const distance = scrolled - offset;
-      element.style.transform = `translateY(${distance * speed}px)`;
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [ref, speed]);
-};
-
-// Custom intersection observer hook with threshold array
+// Custom intersection observer hook
 const useIntersectionObserver = (
   ref: React.RefObject<HTMLDivElement>,
   options = { threshold: [0, 0.25, 0.5, 0.75, 1] }
@@ -55,6 +39,23 @@ const useIntersectionObserver = (
   return intersectionRatio;
 };
 
+// Custom parallax hook
+const useParallax = (ref: React.RefObject<HTMLDivElement>, speed = 0.5) => {
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!ref.current) return;
+      const scrolled = window.scrollY;
+      const element = ref.current;
+      const offset = element.offsetTop;
+      const distance = scrolled - offset;
+      element.style.transform = `translateY(${distance * speed}px)`;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [ref, speed]);
+};
+
 interface SectionProps {
   children: ReactNode;
   className?: string;
@@ -66,14 +67,12 @@ const Section: React.FC<SectionProps> = ({
   children,
   className = "",
   id,
-  parallaxSpeed
+  parallaxSpeed = 0
 }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const intersectionRatio = useIntersectionObserver(sectionRef);
   
-  if (parallaxSpeed) {
-    useParallax(sectionRef, parallaxSpeed);
-  }
+  useParallax(sectionRef, parallaxSpeed);
 
   return (
     <section
@@ -130,9 +129,11 @@ const StrategyCard: React.FC<StrategyCardProps> = ({
       <div className={`absolute inset-0 ${color} opacity-0 group-hover:opacity-10 transition-opacity rounded-2xl`} />
       <div className="bg-black/80 backdrop-blur-lg rounded-2xl overflow-hidden transform-gpu transition-transform duration-700 hover:scale-105">
         <div className="relative h-48 overflow-hidden">
-          <img
+          <Image
             src={image}
             alt={title}
+            width={800}
+            height={400}
             className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
@@ -183,11 +184,11 @@ const GamingStrategyMinistry: React.FC = () => {
 
   const strategies = [
     {
-      title: "Infrastructure d'Accueil",
+      title: "Infrastructure d&apos;Accueil",
       description: [
         "City Gaming Rabat de Création",
-        "Déploiement d'une offre de service",
-        "Créations d'autres zones dédiées"
+        "Déploiement d&apos;une offre de service",
+        "Créations d&apos;autres zones dédiées"
       ],
       icon: Building2,
       image: IMAGES.gamingCity,
@@ -197,7 +198,7 @@ const GamingStrategyMinistry: React.FC = () => {
       title: "Formation",
       description: [
         "Identification des formations",
-        "Structuration de l'offre de formation",
+        "Structuration de l&apos;offre de formation",
         "Stratégie de déploiement"
       ],
       icon: GraduationCap,
@@ -209,7 +210,7 @@ const GamingStrategyMinistry: React.FC = () => {
       description: [
         "Solutions de financement",
         "Attraction des investisseurs étrangers",
-        "Structuration de l'incubation"
+        "Structuration de l&apos;incubation"
       ],
       icon: Landmark,
       image: IMAGES.incubation,
@@ -249,10 +250,13 @@ const GamingStrategyMinistry: React.FC = () => {
       {/* Hero Section */}
       <Section id="hero" className="flex items-center justify-center" parallaxSpeed={0.2}>
         <div ref={heroRef} className="absolute inset-0">
-          <img
+          <Image
             src={IMAGES.hero}
             alt="Gaming Background"
+            width={1920}
+            height={1080}
             className="w-full h-full object-cover opacity-30"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black" />
         </div>
@@ -266,7 +270,7 @@ const GamingStrategyMinistry: React.FC = () => {
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-12">
-            Pour développer l'industrie du gaming au Maroc
+            Pour développer l&apos;industrie du gaming au Maroc
           </p>
           <ChevronDown className="w-12 h-12 mx-auto animate-bounce text-purple-500" />
         </div>
@@ -286,9 +290,11 @@ const GamingStrategyMinistry: React.FC = () => {
       {/* Expo Section */}
       <Section id="expo" className="relative overflow-hidden" parallaxSpeed={0.3}>
         <div className="absolute inset-0">
-          <img
+          <Image
             src={IMAGES.expo}
             alt="Morocco Gaming Expo"
+            width={1920}
+            height={1080}
             className="w-full h-full object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
@@ -305,7 +311,7 @@ const GamingStrategyMinistry: React.FC = () => {
             rel="noopener noreferrer"
             className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 rounded-xl hover:from-purple-500 hover:to-pink-500 transition-all transform hover:scale-105"
           >
-            Découvrir l'événement
+            Découvrir l&apos;événement
           </a>
         </div>
       </Section>
