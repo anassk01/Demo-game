@@ -1,4 +1,3 @@
-"use client";
 import React, { useState, useEffect, useRef, ReactNode } from 'react';
 import { Building2, GraduationCap, Landmark, Globe, Settings, ChevronDown, Gamepad } from 'lucide-react';
 
@@ -33,9 +32,9 @@ const useParallax = (ref: React.RefObject<HTMLDivElement>, speed = 0.5) => {
 
 // Custom intersection observer hook with threshold array
 const useIntersectionObserver = (
-    ref: React.RefObject<HTMLDivElement>,
-    options = { threshold: [0, 0.25, 0.5, 0.75, 1] }
-  ) => {
+  ref: React.RefObject<HTMLDivElement>,
+  options = { threshold: [0, 0.25, 0.5, 0.75, 1] }
+) => {
   const [intersectionRatio, setIntersectionRatio] = useState(0);
 
   useEffect(() => {

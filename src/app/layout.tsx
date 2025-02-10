@@ -1,3 +1,11 @@
+import './globals.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Gaming Morocco',
+  description: 'Gaming Strategy Ministry',
+}
+
 export default function RootLayout({
   children,
 }: {
