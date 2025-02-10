@@ -295,7 +295,7 @@ const GamingStrategyMinistry: React.FC = () => {
         <div className="absolute inset-0">
           <Image
             src={IMAGES.expo}
-            alt="Morocco Gaming Expo"
+            alt=" Gaming Expo"
             width={1920}
             height={1080}
             className="w-full h-full object-cover opacity-20"
@@ -305,11 +305,11 @@ const GamingStrategyMinistry: React.FC = () => {
         <div className="relative z-10 max-w-4xl mx-auto px-8 text-center">
           <h2 className="text-4xl font-bold mb-8">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
-              Morocco Gaming Expo
+               Gaming Expo
             </span>
           </h2>
           <a
-            href="https://moroccogamingexpo.ma"
+            href="#"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 rounded-xl hover:from-purple-500 hover:to-pink-500 transition-all transform hover:scale-105"
