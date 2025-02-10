@@ -188,10 +188,11 @@ const GamingStrategyMinistry: React.FC = () => {
     {
       title: "Demo 1",
       description: [
-        "City Gaming Rabat de Création",
-        "Déploiement d&apos;une offre de service",
-        "Créations d&apos;autres zones dédiées"
-      ],
+        "Demo content Here ",
+        "Another Demo content Here ",
+        "some other Demo content Here "
+
+    ],
       icon: Building2,
       image: IMAGES.gamingCity,
       color: "bg-blue-500"
@@ -199,10 +200,11 @@ const GamingStrategyMinistry: React.FC = () => {
     {
       title: "Demo2 ",
       description: [
-        "Identification des formations",
-        "Structuration de l&apos;offre de formation",
-        "Stratégie de déploiement"
-      ],
+        "Demo content Here ",
+        "Another Demo content Here ",
+        "some other Demo content Here "
+
+    ],
       icon: GraduationCap,
       image: IMAGES.formation,
       color: "bg-purple-500"
