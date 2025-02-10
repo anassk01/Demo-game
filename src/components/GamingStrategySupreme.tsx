@@ -16,31 +16,33 @@ const IMAGES = {
 
 // Custom intersection observer hook
 const useIntersectionObserver = (
-  ref: React.RefObject<HTMLDivElement>,
-  options = { threshold: [0, 0.25, 0.5, 0.75, 1] }
-) => {
-  const [intersectionRatio, setIntersectionRatio] = useState(0);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIntersectionRatio(entry.intersectionRatio);
-      },
-      options
-    );
-
-    if (ref.current) {
+    ref: React.RefObject<HTMLDivElement | null>,
+    options = { threshold: [0, 0.25, 0.5, 0.75, 1] }
+  ) => {
+    const [intersectionRatio, setIntersectionRatio] = useState(0);
+  
+    useEffect(() => {
+      if (!ref.current) return;
+  
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          setIntersectionRatio(entry.intersectionRatio);
+        },
+        options
+      );
+  
       observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, [ref, options]);
-
-  return intersectionRatio;
-};
+      return () => observer.disconnect();
+    }, [ref, options]);
+  
+    return intersectionRatio;
+  };
 
 // Custom parallax hook
-const useParallax = (ref: React.RefObject<HTMLDivElement>, speed = 0.5) => {
+const useParallax = (
+  ref: React.RefObject<HTMLDivElement | null>,
+  speed = 0.5
+) => {
   useEffect(() => {
     const handleScroll = () => {
       if (!ref.current) return;
