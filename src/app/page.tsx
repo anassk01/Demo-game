@@ -1,9 +1,10 @@
-import GamingStrategySupreme from '../components/GamingStrategySupreme';
+"use client";
+import GamingStrategyMinistry from '../components/GamingStrategySupreme';
 
 export default function Home() {
   return (
     <main>
-      <GamingStrategySupreme />
+      <GamingStrategyMinistry />
     </main>
   );
 }
