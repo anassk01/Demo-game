@@ -138,7 +138,7 @@ const StrategyCard: React.FC<StrategyCardProps> = ({
             height={400}
             className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
+          <div className="absolute inset-0  from-black to-transparent" />
         </div>
         <div className="p-6">
           <div className="flex items-center gap-4 mb-4">
@@ -186,7 +186,7 @@ const GamingStrategyMinistry: React.FC = () => {
 
   const strategies = [
     {
-      title: "Infrastructure d&apos;Accueil",
+      title: "Demo 1",
       description: [
         "City Gaming Rabat de Création",
         "Déploiement d&apos;une offre de service",
@@ -197,7 +197,7 @@ const GamingStrategyMinistry: React.FC = () => {
       color: "bg-blue-500"
     },
     {
-      title: "Formation",
+      title: "Demo2 ",
       description: [
         "Identification des formations",
         "Structuration de l&apos;offre de formation",
@@ -208,32 +208,33 @@ const GamingStrategyMinistry: React.FC = () => {
       color: "bg-purple-500"
     },
     {
-      title: "Incubation et Soutien",
+      title: "Demo3",
       description: [
-        "Solutions de financement",
-        "Attraction des investisseurs étrangers",
-        "Structuration de l&apos;incubation"
+        "Demo content Here ",
+        "Another Demo content Here ",
+        "some other Demo content Here "
       ],
       icon: Landmark,
       image: IMAGES.incubation,
       color: "bg-pink-500"
     },
     {
-      title: "Communication",
+      title: "Demo 4",
       description: [
-        "Organisation du Morocco Gaming Expo",
-        "Promotion nationale",
-        "Promotion internationale"
+        "Demo content Here ",
+        "Another Demo content Here ",
+        "some other Demo content Here "
       ],
       icon: Globe,
       image: IMAGES.promotion,
       color: "bg-green-500"
     },
     {
-      title: "Gouvernance",
+      title: "Demo 5",
       description: [
-        "Gouvernance interdépartementale",
-        "Pilotage de la stratégie"
+        "Demo content Here ",
+        "Another Demo content Here ",
+        "some other Demo content Here "
       ],
       icon: Settings,
       image: IMAGES.governance,
@@ -268,11 +269,11 @@ const GamingStrategyMinistry: React.FC = () => {
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-8 animate-gradient-text">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
-              Stratégie du Ministère
+              Stratégie du 
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-12">
-            Pour développer l&apos;industrie du gaming au Maroc
+            Pour développer lindustrie du gaming 
           </p>
           <ChevronDown className="w-12 h-12 mx-auto animate-bounce text-purple-500" />
         </div>
@@ -299,7 +300,7 @@ const GamingStrategyMinistry: React.FC = () => {
             height={1080}
             className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+          <div className="absolute inset-0  from-black via-black/50 to-transparent" />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-8 text-center">
           <h2 className="text-4xl font-bold mb-8">
